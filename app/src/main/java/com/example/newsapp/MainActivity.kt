@@ -1,47 +1,32 @@
 package com.example.newsapp
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import com.example.newsapp.presentation.allnews.views.AllNewsScreen
 import com.example.newsapp.ui.theme.NewsAppTheme
+import dagger.hilt.android.AndroidEntryPoint
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
 
-class MainActivity : ComponentActivity() {
+
+@AndroidEntryPoint
+class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            NewsAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+        setContentView(R.layout.activity_main)
+
+        val btmnav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        btmnav.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.homepage -> { Toast.makeText(this, "homepage", Toast.LENGTH_SHORT).show() }
+                else -> { Toast.makeText(this, "bookmarks", Toast.LENGTH_SHORT).show() }
             }
+            true
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    NewsAppTheme {
-        Greeting("Android")
     }
 }
