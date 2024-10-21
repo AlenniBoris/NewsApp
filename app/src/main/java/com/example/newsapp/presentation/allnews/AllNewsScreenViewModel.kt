@@ -1,4 +1,4 @@
-package com.example.newsapp.presentation.home
+package com.example.newsapp.presentation.allnews
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,11 +10,11 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeScreenViewModel @Inject constructor(
+class AllNewsScreenViewModel @Inject constructor(
      private val newsFromApiRepository: NewsFromApiRepository
 ) : ViewModel() {
 
-    val screenState = MutableStateFlow(HomeScreenState())
+    val screenState = MutableStateFlow(AllNewsScreenState())
 
     init {
         viewModelScope.launch {

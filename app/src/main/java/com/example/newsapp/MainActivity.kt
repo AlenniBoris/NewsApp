@@ -1,38 +1,32 @@
 package com.example.newsapp
 
 import android.os.Bundle
-import androidx.activity.ComponentActivity
+import android.widget.Toast
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.viewmodel.compose.viewModel
-import com.example.newsapp.data.repository.NewsFromApiRepository
-import com.example.newsapp.presentation.home.HomeScreenViewModel
-import com.example.newsapp.presentation.home.views.HomeScreen
+import com.example.newsapp.presentation.allnews.views.AllNewsScreen
 import com.example.newsapp.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
+import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 @AndroidEntryPoint
-class MainActivity : ComponentActivity() {
+class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            NewsAppTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    val pd = innerPadding
+        setContentView(R.layout.activity_main)
 
-                    HomeScreen()
-
-                }
+        val btmnav: BottomNavigationView = findViewById(R.id.bottom_navigation)
+        btmnav.setOnNavigationItemSelectedListener {
+            when(it.itemId){
+                R.id.homepage -> { Toast.makeText(this, "homepage", Toast.LENGTH_SHORT).show() }
+                else -> { Toast.makeText(this, "bookmarks", Toast.LENGTH_SHORT).show() }
             }
+            true
         }
     }
 }

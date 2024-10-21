@@ -1,10 +1,8 @@
-package com.example.newsapp.presentation.home.views
+package com.example.newsapp.presentation.allnews.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -14,8 +12,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.MonotonicFrameClock
-import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -23,12 +19,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.example.newsapp.presentation.home.HomeScreenViewModel
+import com.example.newsapp.presentation.allnews.AllNewsScreenViewModel
 
 
 @Composable
-fun HomeScreen(
-    viewModel: HomeScreenViewModel = hiltViewModel()
+fun AllNewsScreen(
+    viewModel: AllNewsScreenViewModel = hiltViewModel()
 ){
 
     val state by viewModel.screenState.collectAsStateWithLifecycle()
