@@ -1,5 +1,7 @@
 package com.example.newsapp.data.model
 
+import java.io.Serializable
+
 data class ArticleModel(
     val source: ArticleSourceModel,
     val author: String?,
@@ -9,4 +11,4 @@ data class ArticleModel(
     val urlToImage: String?,
     val publishedAt: String,
     val content: String
-)
+) : Serializable

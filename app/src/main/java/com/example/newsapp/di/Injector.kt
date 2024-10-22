@@ -39,6 +39,7 @@ object Injector {
         .addNetworkInterceptor(loggingInterceptor)
         .build()
 
+    @Singleton
     @Provides
     fun provideNewsApiService(okHttpClient: OkHttpClient): NewsApiService =
         Retrofit
