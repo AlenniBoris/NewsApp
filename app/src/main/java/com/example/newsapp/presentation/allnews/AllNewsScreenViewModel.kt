@@ -31,12 +31,16 @@ class AllNewsScreenViewModel @Inject constructor(
                 )
             }
 
-            getNewsResponseByQueryInternal(query)
+            viewModelScope.launch {
+                getNewsResponseByQueryInternal(query)
+            }
+
         }
     }
 
     private suspend fun getNewsResponseByQueryInternal(query: String){
         val newsResponse = newsFromApiRepository.getNewsResponseByQuery(query)
+
         screenState.update { state ->
             state.copy(
                 status = newsResponse.status,

@@ -1,7 +1,12 @@
 package com.example.newsapp.di
 
+import android.app.Application
+import androidx.room.Room
 import com.example.newsapp.Constants
+import com.example.newsapp.data.repository.NewsDatabaseRepository
+import com.example.newsapp.data.repository.NewsFromApiRepository
 import com.example.newsapp.data.source.api.NewsApiService
+import com.example.newsapp.data.source.dao.ArticleDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -18,6 +23,7 @@ import javax.inject.Singleton
 object Injector {
 
     private const val HEADER_AUTHORIZATION = "Authorization"
+    private const val DATABASE_FILE = "news-database-data.db"
 
     @Singleton
     @Provides
@@ -50,4 +56,22 @@ object Injector {
             .build()
             .create(NewsApiService::class.java)
 
+    @Singleton
+    @Provides
+    fun provideNewsFromApiRepository(newsApiService: NewsApiService): NewsFromApiRepository =
+        NewsFromApiRepository(newsApiService)
+
+    @Singleton
+    @Provides
+    fun provideArticlesDatabase(application: Application) : ArticleDatabase =
+        Room.databaseBuilder(
+            application,
+            ArticleDatabase::class.java,
+            DATABASE_FILE
+        ).build()
+
+    @Singleton
+    @Provides
+    fun provideNewsDatabaseRepository(database: ArticleDatabase): NewsDatabaseRepository =
+        NewsDatabaseRepository(database)
 }

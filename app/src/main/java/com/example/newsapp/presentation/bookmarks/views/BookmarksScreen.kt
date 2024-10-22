@@ -12,6 +12,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -21,46 +22,42 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.newsapp.presentation.allnews.AllNewsScreenViewModel
+import com.example.newsapp.presentation.allnews.views.ArticleCard
+import com.example.newsapp.presentation.bookmarks.BookmarksViewModel
+import com.example.newsapp.presentation.details.views.AppTopBar
 
 
 @Composable
 fun BookmarksScreen(
-    viewModel: AllNewsScreenViewModel = hiltViewModel(),
+    viewModel: BookmarksViewModel = hiltViewModel(),
     navController: NavHostController
 ){
 
     val state by viewModel.screenState.collectAsStateWithLifecycle()
 
+    LaunchedEffect(Unit) {
+        viewModel.getAllBookmarksInternal()
+    }
+
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
 
-        Button(
-            modifier = Modifier.fillMaxWidth().height(40.dp),
-            onClick = { viewModel.getNewsByQuery("Apple") }
-        ) { Text("Apple") }
+        AppTopBar(
+            hasButton = false,
+            text = "Bookmarks",
+            textVisible = true,
+            navController = navController
+        )
 
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            items(state.articles){ article ->
-                Box(
-                    modifier = Modifier.background(Color.Black).padding(top = 40.dp)
-                ){
-                    Column {
-                        Text(
-                            text = "title = ${article.title}",
-                            color = Color.White,
-                            fontSize = 14.sp
-                        )
-                        Text(
-                            text = "Author = ${article.author}",
-                            color = Color.White,
-                            fontSize = 14.sp
-                        )
-                    }
-
-                }
+            items(state.bookmarkedArticles){ article ->
+                ArticleCard(
+                    article = article,
+                    navController = navController
+                )
             }
         }
     }

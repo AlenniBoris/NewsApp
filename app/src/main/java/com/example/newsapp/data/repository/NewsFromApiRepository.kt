@@ -5,7 +5,7 @@ import com.example.newsapp.data.model.ServerInfoModel
 import com.example.newsapp.data.source.api.NewsApiService
 import javax.inject.Inject
 
-class NewsFromApiRepository @Inject constructor(
+class NewsFromApiRepository(
     private val newsApiService: NewsApiService
 ){
 
