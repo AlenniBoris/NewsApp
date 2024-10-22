@@ -2,14 +2,12 @@ package com.example.newsapp.data.mappers
 
 import com.example.newsapp.data.model.ArticleModel
 import com.example.newsapp.data.model.ArticleSourceModel
-import com.example.newsapp.data.model.ServerInfoModel
 import com.example.newsapp.data.source.api.model.ArticleResponse
-import com.example.newsapp.data.source.api.model.ServerInfoResponse
 import com.example.newsapp.data.source.dao.model.ArticleEntity
 import com.example.newsapp.data.source.dao.model.ArticleSourceEntity
 
 
-fun ArticleResponse.asArticleModel() : ArticleModel{
+fun ArticleResponse.asArticleModel(): ArticleModel {
     return ArticleModel(
         source = ArticleSourceModel(
             id = this.source.id,
@@ -25,7 +23,7 @@ fun ArticleResponse.asArticleModel() : ArticleModel{
     )
 }
 
-fun ArticleModel.asArticleEntity() : ArticleEntity{
+fun ArticleModel.asArticleEntity(): ArticleEntity {
     return ArticleEntity(
         source = ArticleSourceEntity(
             id = this.source.id,
@@ -41,7 +39,7 @@ fun ArticleModel.asArticleEntity() : ArticleEntity{
     )
 }
 
-fun ArticleEntity.asArticleModel() : ArticleModel{
+fun ArticleEntity.asArticleModel(): ArticleModel {
     return ArticleModel(
         source = ArticleSourceModel(
             id = this.source.id,

@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -26,10 +27,10 @@ import com.example.newsapp.ui.theme.White
 fun EmptyScreen(
     onExploreClicked: () -> Unit,
     text: String,
-    btnText: String = "Explore",
+    btnText: String = stringResource(R.string.explore_text),
     hasInternet: Boolean = true,
     isLoading: Boolean = false
-){
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -38,21 +39,22 @@ fun EmptyScreen(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
 
-        if (isLoading){
+        if (isLoading) {
             CircularProgressIndicator()
-        }else{
-            if (!hasInternet){
+        } else {
+            if (!hasInternet) {
                 Image(
-                    painter = painterResource(id =
-                    if (MaterialTheme.colorScheme.background == White){
-                        R.drawable.ic_no_network_dark
-                    } else{
-                        R.drawable.ic_no_network_light
-                    }
+                    painter = painterResource(
+                        id =
+                        if (MaterialTheme.colorScheme.background == White) {
+                            R.drawable.ic_no_network_dark
+                        } else {
+                            R.drawable.ic_no_network_light
+                        }
                     ),
-                    contentDescription = "Problems with wifi connection"
+                    contentDescription = stringResource(R.string.internet_problem)
                 )
-            }else{
+            } else {
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = text,

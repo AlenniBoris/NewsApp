@@ -20,41 +20,30 @@ import com.example.newsapp.presentation.details.views.DetailsScreen
 fun NavigationGraph(
     navHostController: NavHostController,
     pv: PaddingValues
-){
+) {
     val sharedViewModel: SharedViewModel = viewModel()
 
     NavHost(
         navController = navHostController,
         startDestination = Route.AllNewsRoute.route,
         modifier = Modifier.padding(pv)
-    ){
+    ) {
 
-        composable(Route.AllNewsRoute.route){
+        composable(Route.AllNewsRoute.route) {
             AllNewsScreen(
                 navController = navHostController,
                 sharedViewModel = sharedViewModel
             )
         }
 
-        composable(Route.BookmarksRoute.route){
+        composable(Route.BookmarksRoute.route) {
             BookmarksScreen(
                 navController = navHostController,
                 sharedViewModel = sharedViewModel
             )
         }
 
-        composable(Route.DetailsRoute.route){ backStackEntry ->
-//            val gson: Gson = GsonBuilder().create()
-//            val articleJson = backStackEntry.arguments?.getString("article")
-//            val decoded = URLDecoder.decode(articleJson)
-//            val articleObject = gson.fromJson(articleJson, ArticleModel::class.java)
-
-//            val articleObject = backStackEntry.arguments?.getSerializable("article") as? ArticleModel
-
-//            val articleJson = backStackEntry.arguments?.getString("article")
-//            val articleObject = Gson().fromJson(articleJson, ArticleModel::class.java)
-
-//            Log.d("got article", articleObject.toString())
+        composable(Route.DetailsRoute.route) { backStackEntry ->
             DetailsScreen(
                 navHostController = navHostController,
                 article = sharedViewModel.selectedArticle.value

@@ -9,6 +9,6 @@ interface NewsApiService {
     @GET("everything")
     suspend fun getNewsByQuery(
         @Query("q") query: String
-    ) : ServerInfoResponse
+    ): ServerInfoResponse
 
 }

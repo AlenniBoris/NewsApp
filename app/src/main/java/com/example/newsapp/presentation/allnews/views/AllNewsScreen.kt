@@ -8,14 +8,16 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.example.newsapp.R
 import com.example.newsapp.domain.ExtraFunction
 import com.example.newsapp.domain.SharedViewModel
-import com.example.newsapp.presentation.uikit.EmptyScreen
 import com.example.newsapp.presentation.allnews.AllNewsScreenViewModel
 import com.example.newsapp.presentation.uikit.ArticleCard
+import com.example.newsapp.presentation.uikit.EmptyScreen
 
 
 @Composable
@@ -23,7 +25,7 @@ fun AllNewsScreen(
     viewModel: AllNewsScreenViewModel = hiltViewModel(),
     navController: NavHostController,
     sharedViewModel: SharedViewModel
-){
+) {
 
     val state by viewModel.screenState.collectAsStateWithLifecycle()
 
@@ -36,57 +38,57 @@ fun AllNewsScreen(
             queryTab = state.query,
         )
 
-        if (state.status == "error"){
+        if (state.status == "error") {
 
-            if (!ExtraFunction.checkInternetConnection(LocalContext.current)){
+            if (!ExtraFunction.checkInternetConnection(LocalContext.current)) {
                 EmptyScreen(
                     onExploreClicked = {
                         viewModel.getNewsByQuery(state.query)
                     },
-                    text = "Ooops, something with internet",
+                    text = stringResource(R.string.internet_problem),
                     hasInternet = false,
-                    btnText = "Try again"
+                    btnText = stringResource(R.string.try_again)
                 )
-            }else{
+            } else {
                 EmptyScreen(
                     onExploreClicked = {
                         viewModel.getNewsByQuery(state.query)
                     },
-                    text = "Ooops, something gone wrong",
+                    text = stringResource(R.string.unknown_problem),
                     hasInternet = true,
-                    btnText = "Try again"
+                    btnText = stringResource(R.string.try_again)
                 )
             }
 
-        }else{
+        } else {
 
-            if (state.articles.isEmpty()){
-                if(state.query != ""){
+            if (state.articles.isEmpty()) {
+                if (state.query != "") {
                     EmptyScreen(
                         onExploreClicked = {
                             viewModel.getNewsByQuery(state.query)
                         },
-                        text = "Nothing found",
+                        text = stringResource(R.string.nothing_found_problem),
                         hasInternet = true,
-                        btnText = "Try again"
+                        btnText = stringResource(R.string.try_again)
                     )
-                }else{
+                } else {
                     EmptyScreen(
                         onExploreClicked = {
                             viewModel.getNewsByQuery(state.query)
                         },
-                        text = "Nothing found",
+                        text = stringResource(R.string.nothing_found_problem),
                         hasInternet = true,
-                        btnText = "Try again",
+                        btnText = stringResource(R.string.try_again),
                         isLoading = true
                     )
                 }
 
-            }else{
+            } else {
                 LazyColumn(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    items(state.articles){ article ->
+                    items(state.articles) { article ->
                         ArticleCard(
                             article = article,
                             navController = navController,

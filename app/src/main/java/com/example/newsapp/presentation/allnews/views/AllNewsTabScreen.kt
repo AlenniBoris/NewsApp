@@ -16,7 +16,13 @@ fun AllNewsTabScreen(
     viewModel: AllNewsScreenViewModel,
     queryTab: String,
 ) {
-    var tabIndex by remember { mutableStateOf( if (Constants.TABS.contains(queryTab)) Constants.TABS.indexOf(queryTab) else 0 ) }
+    var tabIndex by remember {
+        mutableStateOf(
+            if (Constants.TABS.contains(queryTab)) Constants.TABS.indexOf(
+                queryTab
+            ) else 0
+        )
+    }
 
     ScrollableTabRow(selectedTabIndex = tabIndex) {
         Constants.TABS.forEachIndexed { index, title ->

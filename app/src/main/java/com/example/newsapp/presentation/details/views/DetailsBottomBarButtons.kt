@@ -17,6 +17,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.newsapp.R
@@ -30,7 +31,7 @@ fun DetailsBottomBarButtons(
     currentArticle: ArticleModel,
     currentArticleIsInDatabase: Boolean,
     navController: NavHostController
-){
+) {
 
     Row(
         modifier = Modifier
@@ -66,9 +67,10 @@ fun DetailsBottomBarButtons(
             Icon(
                 painter = painterResource(
                     id =
-                    if(currentArticleIsInDatabase) R.drawable.icon_bookmarks_active
-                    else R.drawable.icon_bookmarks),
-                contentDescription = "Btn bookmarks",
+                    if (currentArticleIsInDatabase) R.drawable.icon_bookmarks_active
+                    else R.drawable.icon_bookmarks
+                ),
+                contentDescription = stringResource(R.string.bookmarks_button_description),
                 tint = MaterialTheme.colorScheme.onPrimary
             )
         }

@@ -9,23 +9,23 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.newsapp.R
 import com.example.newsapp.data.model.ArticleModel
-import com.example.newsapp.navigation.Screen
 
 @Composable
 fun DetailsScreenImage(
     currentArticle: ArticleModel?
-){
+) {
     AsyncImage(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 30.dp)
             .clip(RoundedCornerShape(24.dp)),
         model = currentArticle?.urlToImage,
-        contentDescription = "Image",
+        contentDescription = stringResource(R.string.image_description),
         contentScale = ContentScale.FillWidth,
         placeholder =
         if (isSystemInDarkTheme()) painterResource(id = R.drawable.ic_placeholder_dark)

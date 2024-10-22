@@ -8,9 +8,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
+import com.example.newsapp.R
 import com.example.newsapp.domain.SharedViewModel
 import com.example.newsapp.presentation.bookmarks.BookmarksViewModel
 import com.example.newsapp.presentation.uikit.AppTopBar
@@ -22,7 +24,7 @@ fun BookmarksScreen(
     viewModel: BookmarksViewModel = hiltViewModel(),
     navController: NavHostController,
     sharedViewModel: SharedViewModel
-){
+) {
 
     val state by viewModel.screenState.collectAsStateWithLifecycle()
 
@@ -36,7 +38,7 @@ fun BookmarksScreen(
 
         AppTopBar(
             hasButton = false,
-            text = "Bookmarks",
+            text = stringResource(R.string.bookmarks),
             textVisible = true,
             navController = navController
         )
@@ -44,7 +46,7 @@ fun BookmarksScreen(
         LazyColumn(
             modifier = Modifier.fillMaxSize()
         ) {
-            items(state.bookmarkedArticles){ article ->
+            items(state.bookmarkedArticles) { article ->
                 ArticleCard(
                     article = article,
                     navController = navController,

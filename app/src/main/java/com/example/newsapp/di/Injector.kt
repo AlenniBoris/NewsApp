@@ -2,11 +2,11 @@ package com.example.newsapp.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.newsapp.domain.Constants
 import com.example.newsapp.data.repository.NewsDatabaseRepository
 import com.example.newsapp.data.repository.NewsFromApiRepository
 import com.example.newsapp.data.source.api.NewsApiService
 import com.example.newsapp.data.source.dao.ArticleDatabase
+import com.example.newsapp.domain.Constants
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -63,7 +63,7 @@ object Injector {
 
     @Singleton
     @Provides
-    fun provideArticlesDatabase(application: Application) : ArticleDatabase =
+    fun provideArticlesDatabase(application: Application): ArticleDatabase =
         Room.databaseBuilder(
             application,
             ArticleDatabase::class.java,
@@ -74,4 +74,5 @@ object Injector {
     @Provides
     fun provideNewsDatabaseRepository(database: ArticleDatabase): NewsDatabaseRepository =
         NewsDatabaseRepository(database)
+
 }

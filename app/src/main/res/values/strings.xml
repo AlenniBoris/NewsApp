@@ -1,5 +1,13 @@
 <resources>
     <string name="app_name">NewsApp</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="internet_problem">Ooops, something with internet</string>
+    <string name="unknown_problem">Ooops, something gone wrong</string>
+    <string name="nothing_found_problem">Nothing found</string>
+    <string name="try_again">Try again</string>
+    <string name="bookmarks">Bookmarks</string>
+    <string name="bookmarks_button_description">Button bookmarks</string>
+    <string name="image_description">Image</string>
+    <string name="published_text">Published at:</string>
+    <string name="source_text">Source: </string>
+    <string name="explore_text">Explore</string>
 </resources>

@@ -2,11 +2,8 @@ package com.example.newsapp.presentation.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.newsapp.data.model.ArticleModel
 import com.example.newsapp.data.repository.NewsDatabaseRepository
-import com.example.newsapp.navigation.Screen
-import com.example.newsapp.presentation.bookmarks.BookmarksScreenState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -16,18 +13,18 @@ import javax.inject.Inject
 @HiltViewModel
 class DetailsScreenViewModel @Inject constructor(
     private val newsDatabaseRepository: NewsDatabaseRepository
-) : ViewModel(){
+) : ViewModel() {
 
     val screenState = MutableStateFlow(DetailsScreenState())
 
-    fun assignArticle(article: ArticleModel?){
+    fun assignArticle(article: ArticleModel?) {
         screenState.update { state ->
             state.copy(
                 currentArticle = article
             )
         }
 
-        if (article != null){
+        if (article != null) {
             viewModelScope.launch {
                 val count = newsDatabaseRepository.countByTitle(article.title)
                 changeIsFavourite(count != 0)
@@ -35,9 +32,9 @@ class DetailsScreenViewModel @Inject constructor(
         }
     }
 
-    fun actionOnBookmarksButton(article: ArticleModel){
+    fun actionOnBookmarksButton(article: ArticleModel) {
         viewModelScope.launch {
-            if (screenState.value.articleIsInBookmarks){
+            if (screenState.value.articleIsInBookmarks) {
                 removeFromBookmarks(article)
                 changeIsFavourite(false)
 
@@ -48,20 +45,20 @@ class DetailsScreenViewModel @Inject constructor(
         }
     }
 
-    suspend fun addToBookmarks(article: ArticleModel) {
+    private suspend fun addToBookmarks(article: ArticleModel) {
         viewModelScope.launch {
             newsDatabaseRepository.addArticle(article)
         }
 
     }
 
-    suspend fun removeFromBookmarks(article: ArticleModel) {
+    private suspend fun removeFromBookmarks(article: ArticleModel) {
         viewModelScope.launch {
             newsDatabaseRepository.deleteArticle(article)
         }
     }
 
-    private fun changeIsFavourite(isInBookmarks: Boolean){
+    private fun changeIsFavourite(isInBookmarks: Boolean) {
         screenState.update { state -> state.copy(articleIsInBookmarks = isInBookmarks) }
     }
 

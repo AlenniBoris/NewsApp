@@ -17,10 +17,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.newsapp.R
 
 @Composable
 fun AppTopBar(
@@ -28,15 +30,15 @@ fun AppTopBar(
     text: String,
     textVisible: Boolean,
     navController: NavHostController
-){
+) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
             .padding(top = 17.dp)
-            .padding(horizontal = if (text == "Bookmarks") 0.dp else 24.dp),
+            .padding(horizontal = if (text == stringResource(R.string.bookmarks)) 0.dp else 24.dp),
         horizontalArrangement = Arrangement.Center
     ) {
-        if (hasButton){
+        if (hasButton) {
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(12.dp))
@@ -55,7 +57,7 @@ fun AppTopBar(
             }
         }
 
-        if (textVisible){
+        if (textVisible) {
             Text(
                 text = text,
                 fontSize = 22.sp,

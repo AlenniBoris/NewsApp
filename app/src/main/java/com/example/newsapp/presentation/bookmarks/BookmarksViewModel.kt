@@ -22,7 +22,7 @@ class BookmarksViewModel @Inject constructor(
         }
     }
 
-    suspend fun getAllBookmarksInternal(){
+    suspend fun getAllBookmarksInternal() {
         val bookmarkedArticles = newsDatabaseRepository.getAllArticles()
         viewModelScope.launch {
             screenState.update { state ->

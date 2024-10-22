@@ -6,7 +6,7 @@ import android.net.NetworkCapabilities
 
 object ExtraFunction {
 
-    fun checkInternetConnection(context: Context) : Boolean{
+    fun checkInternetConnection(context: Context): Boolean {
         val connectivityManager =
             context.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 

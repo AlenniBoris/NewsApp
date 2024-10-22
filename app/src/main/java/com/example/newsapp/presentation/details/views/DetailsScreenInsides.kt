@@ -14,9 +14,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
+import com.example.newsapp.R
 import com.example.newsapp.presentation.details.DetailsScreenState
 import com.example.newsapp.presentation.details.DetailsScreenViewModel
 
@@ -28,7 +30,7 @@ fun DetailsScreenInsides(
     context: Context,
     detailsScreenViewModel: DetailsScreenViewModel,
     navHostController: NavHostController
-){
+) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -52,13 +54,19 @@ fun DetailsScreenInsides(
             text = "url: ${detailsScreenState.currentArticle?.url.toString()}",
             fontSize = 20.sp,
             modifier = Modifier.clickable {
-                val searchQuery = detailsScreenState.currentArticle?.url.toString().substringAfter("://").replace("/", " ")
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://www.google.com/search?q=$searchQuery"))
+                val searchQuery =
+                    detailsScreenState.currentArticle?.url.toString().substringAfter("://")
+                        .replace("/", " ")
+                val intent = Intent(
+                    Intent.ACTION_VIEW,
+                    Uri.parse("https://www.google.com/search?q=$searchQuery")
+                )
                 context.startActivity(intent)
             }
         )
         Text(
-            text = "Published at: ${detailsScreenState.currentArticle?.publishedAt.toString()}",
+            text = stringResource(R.string.published_text)
+                    + detailsScreenState.currentArticle?.publishedAt.toString(),
             fontSize = 20.sp
         )
         Text(

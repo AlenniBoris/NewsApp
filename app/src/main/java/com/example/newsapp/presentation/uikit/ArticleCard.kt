@@ -9,13 +9,15 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
-import com.example.newsapp.domain.SharedViewModel
+import com.example.newsapp.R
 import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.SharedViewModel
 import com.example.newsapp.navigation.Screen
 
 @Composable
@@ -23,7 +25,7 @@ fun ArticleCard(
     article: ArticleModel,
     navController: NavHostController,
     sharedViewModel: SharedViewModel
-){
+) {
     Column(
         modifier = Modifier
             .fillMaxWidth()
@@ -42,7 +44,7 @@ fun ArticleCard(
         )
 
         Text(
-            text = "Source: ${article.source.name}",
+            text = stringResource(R.string.source_text) + article.source.name,
             fontSize = 10.sp,
             textAlign = TextAlign.Center,
         )
