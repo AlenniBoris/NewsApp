@@ -2,7 +2,7 @@ package com.example.newsapp.presentation.allnews
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.Constants
+import com.example.newsapp.domain.Constants
 import com.example.newsapp.data.repository.NewsFromApiRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

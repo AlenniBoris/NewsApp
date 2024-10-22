@@ -8,7 +8,7 @@ sealed class Route(
 
     object BookmarksRoute : Route("bookmarks_screen")
 
-    object DetailsRoute : Route("details_screen/{article}")
-//    object DetailsRoute : Route("details_screen")
+//    object DetailsRoute : Route("details_screen/{article}")
+    object DetailsRoute : Route("details_screen")
 
 }

@@ -21,7 +21,7 @@ sealed class Screen(
     )
 
     object DetailsScreen : Screen(
-        "details_screen/"
+        "details_screen"
     )
 
 }

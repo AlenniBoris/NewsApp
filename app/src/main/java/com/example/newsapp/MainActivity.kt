@@ -1,6 +1,7 @@
 package com.example.newsapp
 
 import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -8,6 +9,7 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
@@ -38,6 +40,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.fragment.app.FragmentTransaction
 import androidx.fragment.app.replace
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavBackStackEntry
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination
@@ -53,6 +56,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 
+    @RequiresApi(Build.VERSION_CODES.TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -71,6 +75,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.TIRAMISU)
 @Composable
 fun MainActivityShowFunction(){
 

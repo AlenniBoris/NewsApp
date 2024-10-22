@@ -2,7 +2,7 @@ package com.example.newsapp.di
 
 import android.app.Application
 import androidx.room.Room
-import com.example.newsapp.Constants
+import com.example.newsapp.domain.Constants
 import com.example.newsapp.data.repository.NewsDatabaseRepository
 import com.example.newsapp.data.repository.NewsFromApiRepository
 import com.example.newsapp.data.source.api.NewsApiService
