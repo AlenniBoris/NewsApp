@@ -73,47 +73,42 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
 
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    // For loading and tinting drawables on older versions of the platform
-    implementation("androidx.appcompat:appcompat-resources:1.7.0")
+    implementation(libs.androidx.appcompat)
+    implementation(libs.androidx.appcompat.resources)
 
 
     //compose
-    implementation("androidx.navigation:navigation-compose:2.7.5")
-    implementation("androidx.compose.material:material:1.5.4")
-    implementation("androidx.compose.material:material-icons-extended:1.5.4")
-    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.2")
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.androidx.material)
+    implementation(libs.androidx.material.icons.extended)
+    implementation(libs.androidx.lifecycle.runtime.compose)
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 
 
     //retrofit
-    implementation("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation("com.squareup.okhttp3:okhttp:4.12.0")
-    implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
+    implementation(libs.converter.gson)
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.logging.interceptor)
 
     //Dagger-Hilt
-    implementation("com.google.dagger:hilt-android:2.48")
-    implementation("androidx.hilt:hilt-navigation-compose:1.1.0")
-    kapt("com.google.dagger:hilt-android-compiler:2.48")
-    kapt("androidx.hilt:hilt-compiler:1.0.0")
-
-    //Fragments
-    // Kotlin
-    implementation("androidx.fragment:fragment-ktx:1.8.2")
+    implementation(libs.hilt.android)
+    implementation(libs.androidx.hilt.navigation.compose)
+    kapt(libs.hilt.android.compiler)
+    kapt(libs.androidx.hilt.compiler)
 
     //Room
-    implementation("androidx.room:room-runtime:2.6.1")
-    implementation("androidx.room:room-ktx:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")
-    kapt("androidx.room:room-compiler:2.6.1")
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    annotationProcessor(libs.androidx.room.compiler)
+    kapt(libs.androidx.room.compiler)
 
     //coil
-    implementation("io.coil-kt:coil:2.4.0")
-    implementation("io.coil-kt:coil-compose:2.4.0")
+    implementation(libs.coil)
+    implementation(libs.coil.compose)
 
-    testImplementation("org.jetbrains.kotlin:kotlin-test-junit:2.0.0")
-    testImplementation("io.mockk:mockk:1.12.0")
-    testImplementation("org.jetbrains.kotlinx:kotlinx-coroutines-test:1.5.2")
+    testImplementation(libs.kotlin.test.junit)
+    testImplementation(libs.mockk)
+    testImplementation(libs.kotlinx.coroutines.test)
 
 }

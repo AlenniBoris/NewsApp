@@ -8,19 +8,19 @@ sealed class Screen(
     val notActiveIcon: Int? = null,
 ) {
 
-    object AllNewsScreen : Screen(
+    data object AllNewsScreen : Screen(
         "all_news_screen",
         R.drawable.icon_all_news_active,
         R.drawable.icon_all_news
     )
 
-    object BookmarksScreen : Screen(
+    data object BookmarksScreen : Screen(
         "bookmarks_screen",
         R.drawable.icon_bookmarks_active,
         R.drawable.icon_bookmarks
     )
 
-    object DetailsScreen : Screen(
+    data object DetailsScreen : Screen(
         "details_screen"
     )
 

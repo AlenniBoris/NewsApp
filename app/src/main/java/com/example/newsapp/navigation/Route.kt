@@ -4,10 +4,10 @@ sealed class Route(
     val route: String
 ) {
 
-    object AllNewsRoute : Route("all_news_screen")
+    data object AllNewsRoute : Route("all_news_screen")
 
-    object BookmarksRoute : Route("bookmarks_screen")
+    data object BookmarksRoute : Route("bookmarks_screen")
 
-    object DetailsRoute : Route("details_screen")
+    data object DetailsRoute : Route("details_screen")
 
 }
