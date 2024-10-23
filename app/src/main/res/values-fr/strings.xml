@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="internet_problem">Quelque chose s`est passé avec la connexion Internet</string>
+    <string name="unknown_problem">Quelque chose s`est mal passé</string>
+    <string name="nothing_found_problem">Rien trouvé</string>
+    <string name="try_again">Essayer à nouveau</string>
+    <string name="bookmarks">Signets</string>
+    <string name="bookmarks_button_description">Bouton signets</string>
+    <string name="image_description">Image</string>
+    <string name="published_text">Publié: </string>
+    <string name="source_text">Source: </string>
+    <string name="explore_text">Explorer</string>
+    <string name="author">Auteur: </string>
+</resources>

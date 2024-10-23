@@ -46,7 +46,7 @@ fun EmptyScreen(
                 Image(
                     painter = painterResource(
                         id =
-                        if (MaterialTheme.colorScheme.background == White) {
+                        if (MaterialTheme.colorScheme.background != White) {
                             R.drawable.ic_no_network_dark
                         } else {
                             R.drawable.ic_no_network_light

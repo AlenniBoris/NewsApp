@@ -43,11 +43,11 @@ fun DetailsScreenInsides(
             currentArticle = detailsScreenState.currentArticle
         )
         Text(
-            text = "Author: ${detailsScreenState.currentArticle?.author.toString()}",
+            text = stringResource(R.string.author) + detailsScreenState.currentArticle?.author.toString(),
             fontSize = 20.sp
         )
         Text(
-            text = "Source: ${detailsScreenState.currentArticle?.source?.name.toString()}",
+            text = stringResource(R.string.source_text) + detailsScreenState.currentArticle?.source?.name.toString(),
             fontSize = 20.sp,
         )
         Text(

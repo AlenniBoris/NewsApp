@@ -10,4 +10,5 @@
     <string name="published_text">Published at:</string>
     <string name="source_text">Source: </string>
     <string name="explore_text">Explore</string>
+    <string name="author">Author: </string>
 </resources>

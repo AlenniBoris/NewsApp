@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NewsApp</string>
+    <string name="internet_problem">Что-то произошло с интернет-соединением</string>
+    <string name="unknown_problem">Что-то произошло не так</string>
+    <string name="nothing_found_problem">Ничего не найдено</string>
+    <string name="try_again">Попробовать снова</string>
+    <string name="bookmarks">Закладки</string>
+    <string name="bookmarks_button_description">Кнопка закладок</string>
+    <string name="image_description">Изображение</string>
+    <string name="published_text">Опубликовано: </string>
+    <string name="source_text">Источник: </string>
+    <string name="explore_text">Искать</string>
+    <string name="author">Автор: </string>
+</resources>
