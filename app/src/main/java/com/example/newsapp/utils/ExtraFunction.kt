@@ -22,14 +22,6 @@ object ExtraFunction {
     }
 
     fun writeLastQueryToFile(lastQuery: String, context: Context) {
-//        try {
-//            val file = File("cachedQuery.txt")
-//            val writer = FileWriter(file)
-//            writer.write(lastQuery)
-//            writer.close()
-//        } catch (e:  Exception){
-//            Log.d("WRITING", e.message.toString())
-//        }
         try {
             val outputStreamWriter =
                 OutputStreamWriter(
