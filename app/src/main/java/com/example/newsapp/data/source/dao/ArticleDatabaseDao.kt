@@ -16,10 +16,10 @@ interface ArticleDatabaseDao {
     @Delete
     suspend fun deleteArticle(articleEntity: ArticleEntity)
 
-    @Query("SELECT * FROM news_bookmarks")
+    @Query("SELECT * FROM bookmarks_news")
     suspend fun getAllArticles(): List<ArticleEntity>
 
-    @Query("SELECT COUNT(*) FROM news_bookmarks WHERE title=:title")
+    @Query("SELECT COUNT(*) FROM bookmarks_news WHERE title=:title")
     suspend fun countByTitle(title: String): Int
 
 }

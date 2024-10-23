@@ -21,7 +21,7 @@ import javax.inject.Singleton
 object Injector {
 
     private const val HEADER_AUTHORIZATION = "Authorization"
-    private const val DATABASE_FILE = "news-database-data.db"
+    private const val DATABASE_FILE = "database-data.db"
 
     @Singleton
     @Provides
