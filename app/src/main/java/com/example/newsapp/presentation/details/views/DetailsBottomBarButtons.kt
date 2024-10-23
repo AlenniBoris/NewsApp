@@ -21,7 +21,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.example.newsapp.R
-import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleModel
 import com.example.newsapp.navigation.Route
 import com.example.newsapp.presentation.details.DetailsScreenViewModel
 

@@ -1,7 +1,7 @@
 package com.example.newsapp.data.mappers
 
-import com.example.newsapp.data.model.ArticleModel
-import com.example.newsapp.data.model.ArticleSourceModel
+import com.example.newsapp.domain.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleSourceModel
 import com.example.newsapp.data.source.api.model.ArticleResponse
 import com.example.newsapp.data.source.dao.model.ArticleEntity
 import com.example.newsapp.data.source.dao.model.ArticleSourceEntity

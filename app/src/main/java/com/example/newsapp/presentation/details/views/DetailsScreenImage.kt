@@ -13,7 +13,7 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.example.newsapp.R
-import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleModel
 
 @Composable
 fun DetailsScreenImage(

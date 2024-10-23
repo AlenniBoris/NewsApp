@@ -10,7 +10,7 @@ import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.newsapp.domain.SharedViewModel
+import com.example.newsapp.presentation.SharedViewModel
 import com.example.newsapp.presentation.allnews.views.AllNewsScreen
 import com.example.newsapp.presentation.bookmarks.views.BookmarksScreen
 import com.example.newsapp.presentation.details.views.DetailsScreen

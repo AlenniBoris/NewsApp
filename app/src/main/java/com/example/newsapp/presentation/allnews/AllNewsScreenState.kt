@@ -1,6 +1,6 @@
 package com.example.newsapp.presentation.allnews
 
-import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleModel
 
 data class AllNewsScreenState(
     val status: String = "",

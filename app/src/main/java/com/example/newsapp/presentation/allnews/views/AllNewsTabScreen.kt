@@ -8,7 +8,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import com.example.newsapp.domain.Constants
+import com.example.newsapp.utils.Constants
 import com.example.newsapp.presentation.allnews.AllNewsScreenViewModel
 
 @Composable

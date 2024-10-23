@@ -1,8 +1,8 @@
-package com.example.newsapp.domain
+package com.example.newsapp.presentation
 
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
-import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleModel
 
 class SharedViewModel : ViewModel() {
 

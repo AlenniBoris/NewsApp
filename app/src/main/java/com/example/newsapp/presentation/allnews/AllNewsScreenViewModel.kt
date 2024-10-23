@@ -2,8 +2,8 @@ package com.example.newsapp.presentation.allnews
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.repository.NewsFromApiRepository
-import com.example.newsapp.domain.Constants
+import com.example.newsapp.utils.Constants
+import com.example.newsapp.domain.usecase.newsfromapi.GetNewsByQueryUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -12,7 +12,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AllNewsScreenViewModel @Inject constructor(
-    private val newsFromApiRepository: NewsFromApiRepository
+    private val getNewsByQueryUseCase : GetNewsByQueryUseCase
 ) : ViewModel() {
 
     val screenState = MutableStateFlow(AllNewsScreenState())
@@ -39,7 +39,7 @@ class AllNewsScreenViewModel @Inject constructor(
     }
 
     private suspend fun getNewsResponseByQueryInternal(query: String) {
-        val newsResponse = newsFromApiRepository.getNewsResponseByQuery(query)
+        val newsResponse = getNewsByQueryUseCase.invoke(query)
 
         screenState.update { state ->
             state.copy(

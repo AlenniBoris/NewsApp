@@ -13,11 +13,11 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
 import com.example.newsapp.R
-import com.example.newsapp.domain.ExtraFunction
-import com.example.newsapp.domain.SharedViewModel
+import com.example.newsapp.utils.ExtraFunction
+import com.example.newsapp.presentation.SharedViewModel
 import com.example.newsapp.presentation.allnews.AllNewsScreenViewModel
-import com.example.newsapp.presentation.uikit.ArticleCard
-import com.example.newsapp.presentation.uikit.EmptyScreen
+import com.example.newsapp.presentation.uikit.views.ArticleCard
+import com.example.newsapp.presentation.uikit.views.EmptyScreen
 
 
 @Composable

@@ -13,9 +13,9 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavHostController
-import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleModel
 import com.example.newsapp.presentation.details.DetailsScreenViewModel
-import com.example.newsapp.presentation.uikit.AppTopBar
+import com.example.newsapp.presentation.uikit.views.AppTopBar
 
 
 @Composable

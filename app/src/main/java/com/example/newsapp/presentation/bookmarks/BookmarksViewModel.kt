@@ -2,7 +2,7 @@ package com.example.newsapp.presentation.bookmarks
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.repository.NewsDatabaseRepository
+import com.example.newsapp.domain.usecase.bookmarks.GetAllBookmarksUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -11,7 +11,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class BookmarksViewModel @Inject constructor(
-    private val newsDatabaseRepository: NewsDatabaseRepository
+    private val getAllBookmarksUseCase: GetAllBookmarksUseCase
 ) : ViewModel() {
 
     val screenState = MutableStateFlow(BookmarksScreenState())
@@ -23,7 +23,7 @@ class BookmarksViewModel @Inject constructor(
     }
 
     suspend fun getAllBookmarksInternal() {
-        val bookmarkedArticles = newsDatabaseRepository.getAllArticles()
+        val bookmarkedArticles = getAllBookmarksUseCase.invoke()
         viewModelScope.launch {
             screenState.update { state ->
                 state.copy(

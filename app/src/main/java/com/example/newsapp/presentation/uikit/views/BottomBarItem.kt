@@ -1,4 +1,4 @@
-package com.example.newsapp.presentation.uikit
+package com.example.newsapp.presentation.uikit.views
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.clickable

@@ -1,4 +1,4 @@
-package com.example.newsapp.domain
+package com.example.newsapp.utils
 
 import android.content.Context
 import android.net.ConnectivityManager

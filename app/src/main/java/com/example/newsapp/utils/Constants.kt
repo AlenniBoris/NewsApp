@@ -1,4 +1,4 @@
-package com.example.newsapp.domain
+package com.example.newsapp.utils
 
 object Constants {
     const val BASE_URL = "https://newsapi.org/v2/"

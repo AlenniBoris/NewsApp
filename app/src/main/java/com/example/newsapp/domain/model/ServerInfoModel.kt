@@ -1,4 +1,4 @@
-package com.example.newsapp.data.model
+package com.example.newsapp.domain.model
 
 data class ServerInfoModel(
     val status: String,

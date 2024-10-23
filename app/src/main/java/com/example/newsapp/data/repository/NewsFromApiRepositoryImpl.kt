@@ -1,15 +1,19 @@
 package com.example.newsapp.data.repository
 
 import com.example.newsapp.data.mappers.asArticleModel
-import com.example.newsapp.data.model.ServerInfoModel
+import com.example.newsapp.domain.model.ServerInfoModel
 import com.example.newsapp.data.source.api.NewsApiService
 import com.example.newsapp.data.source.api.model.ServerInfoResponse
+import com.example.newsapp.domain.repository.NewsFromApiRepository
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class NewsFromApiRepository(
-    private val newsApiService: NewsApiService
-) {
+@Singleton
+class NewsFromApiRepositoryImpl @Inject constructor(
+    private val newsApiService: NewsApiService,
+) : NewsFromApiRepository{
 
-    suspend fun getNewsResponseByQuery(query: String): ServerInfoModel {
+    override suspend fun getNewsResponseByQuery(query: String): ServerInfoModel {
         val serverResponse = try {
             newsApiService.getNewsByQuery(query)
         } catch (e: Exception) {

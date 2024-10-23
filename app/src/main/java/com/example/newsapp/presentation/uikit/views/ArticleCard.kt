@@ -1,4 +1,4 @@
-package com.example.newsapp.presentation.uikit
+package com.example.newsapp.presentation.uikit.views
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -16,8 +16,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import com.example.newsapp.R
-import com.example.newsapp.data.model.ArticleModel
-import com.example.newsapp.domain.SharedViewModel
+import com.example.newsapp.domain.model.ArticleModel
+import com.example.newsapp.presentation.SharedViewModel
 import com.example.newsapp.navigation.Screen
 
 @Composable

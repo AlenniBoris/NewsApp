@@ -2,8 +2,10 @@ package com.example.newsapp.presentation.details
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.newsapp.data.model.ArticleModel
-import com.example.newsapp.data.repository.NewsDatabaseRepository
+import com.example.newsapp.domain.model.ArticleModel
+import com.example.newsapp.domain.usecase.bookmarks.AddArticleUseCase
+import com.example.newsapp.domain.usecase.bookmarks.CountByTitleUseCase
+import com.example.newsapp.domain.usecase.bookmarks.DeleteArticleUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.update
@@ -12,7 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailsScreenViewModel @Inject constructor(
-    private val newsDatabaseRepository: NewsDatabaseRepository
+    private val addArticleUseCase: AddArticleUseCase,
+    private val deleteArticleUseCase: DeleteArticleUseCase,
+    private val countByTitleUseCase: CountByTitleUseCase
 ) : ViewModel() {
 
     val screenState = MutableStateFlow(DetailsScreenState())
@@ -26,7 +30,7 @@ class DetailsScreenViewModel @Inject constructor(
 
         if (article != null) {
             viewModelScope.launch {
-                val count = newsDatabaseRepository.countByTitle(article.title)
+                val count = countByTitleUseCase.invoke(article.title)
                 changeIsFavourite(count != 0)
             }
         }
@@ -47,14 +51,14 @@ class DetailsScreenViewModel @Inject constructor(
 
     private suspend fun addToBookmarks(article: ArticleModel) {
         viewModelScope.launch {
-            newsDatabaseRepository.addArticle(article)
+            addArticleUseCase.invoke(article)
         }
 
     }
 
     private suspend fun removeFromBookmarks(article: ArticleModel) {
         viewModelScope.launch {
-            newsDatabaseRepository.deleteArticle(article)
+            deleteArticleUseCase.invoke(article)
         }
     }
 

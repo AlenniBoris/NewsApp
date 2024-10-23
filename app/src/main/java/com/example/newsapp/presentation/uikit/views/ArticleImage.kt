@@ -1,4 +1,4 @@
-package com.example.newsapp.presentation.uikit
+package com.example.newsapp.presentation.uikit.views
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -9,7 +9,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import coil.compose.AsyncImage
 import com.example.newsapp.R
-import com.example.newsapp.data.model.ArticleModel
+import com.example.newsapp.domain.model.ArticleModel
 
 @Composable
 fun ArticleImage(

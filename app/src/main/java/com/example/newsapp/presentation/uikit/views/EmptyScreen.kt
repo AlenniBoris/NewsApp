@@ -1,4 +1,4 @@
-package com.example.newsapp.presentation.uikit
+package com.example.newsapp.presentation.uikit.views
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -20,8 +20,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.newsapp.R
-import com.example.newsapp.ui.theme.Red
-import com.example.newsapp.ui.theme.White
+import com.example.newsapp.presentation.uikit.theme.Red
+import com.example.newsapp.presentation.uikit.theme.White
 
 @Composable
 fun EmptyScreen(

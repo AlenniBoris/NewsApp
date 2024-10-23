@@ -16,8 +16,8 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.newsapp.navigation.NavigationGraph
 import com.example.newsapp.navigation.Screen
-import com.example.newsapp.presentation.uikit.appBottomBar
-import com.example.newsapp.ui.theme.NewsAppTheme
+import com.example.newsapp.presentation.uikit.views.appBottomBar
+import com.example.newsapp.presentation.uikit.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 
