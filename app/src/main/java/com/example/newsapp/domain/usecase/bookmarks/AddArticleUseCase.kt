@@ -5,11 +5,11 @@ import com.example.newsapp.domain.repository.BookmarksRepository
 import javax.inject.Inject
 
 class AddArticleUseCase @Inject constructor(
-    private val articleRepository: BookmarksRepository
+    private val bookmarksRepository: BookmarksRepository
 ) {
 
     suspend fun invoke(article: ArticleModel) {
-        articleRepository.addArticle(article)
+        bookmarksRepository.addArticle(article)
     }
 
 }
