@@ -6,5 +6,6 @@ data class AllNewsScreenState(
     val status: String = "",
     val totalResults: Int = 0,
     val articles: List<ArticleModel> = emptyList(),
-    val query: String = ""
+    val query: String = "",
+    val cachedQuery: String = ""
 )

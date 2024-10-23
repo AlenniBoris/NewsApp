@@ -1,7 +1,8 @@
-package com.example.newsapp.data.source.dao
+package com.example.newsapp.data.source.dao.cache
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
+import com.example.newsapp.data.source.dao.DatabaseDao
 import com.example.newsapp.data.source.dao.model.ArticleEntity
 
 @Database(
@@ -9,6 +10,6 @@ import com.example.newsapp.data.source.dao.model.ArticleEntity
     version = 1,
     exportSchema = false
 )
-abstract class ArticleDatabase: RoomDatabase(){
-    abstract val dao: ArticleDatabaseDao
+abstract class CacheDatabase : RoomDatabase() {
+    abstract val dao: DatabaseDao
 }

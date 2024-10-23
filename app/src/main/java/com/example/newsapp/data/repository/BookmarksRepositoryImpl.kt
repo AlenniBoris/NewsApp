@@ -2,15 +2,15 @@ package com.example.newsapp.data.repository
 
 import com.example.newsapp.data.mappers.asArticleEntity
 import com.example.newsapp.data.mappers.asArticleModel
+import com.example.newsapp.data.source.dao.bookmarks.BookmarksDatabase
 import com.example.newsapp.domain.model.ArticleModel
-import com.example.newsapp.data.source.dao.ArticleDatabase
 import com.example.newsapp.domain.repository.BookmarksRepository
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class BookmarksRepositoryImpl @Inject constructor(
-    private val newsDatabase: ArticleDatabase
+    private val newsDatabase: BookmarksDatabase
 ) : BookmarksRepository {
 
     override suspend fun addArticle(articleModel: ArticleModel) {

@@ -1,8 +1,8 @@
-package com.example.newsapp.domain.usecase.bookmarks
+package com.example.newsapp.domain.usecase.cache
 
 import com.example.newsapp.domain.model.ArticleModel
 import com.example.newsapp.domain.model.ArticleSourceModel
-import com.example.newsapp.domain.repository.BookmarksRepository
+import com.example.newsapp.domain.repository.CacheRepository
 import io.mockk.coEvery
 import io.mockk.coVerify
 import io.mockk.mockk
@@ -11,36 +11,36 @@ import org.junit.Before
 import org.junit.Test
 import org.junit.jupiter.api.Assertions.assertEquals
 
-class GetAllBookmarksUseCaseTest {
+class CacheGetAllArticlesUseCaseTest {
 
-    private lateinit var addArticleUseCase: AddArticleUseCase
-    private lateinit var getAllBookmarksUseCase: GetAllBookmarksUseCase
-    private val bookmarksRepository: BookmarksRepository = mockk(relaxed = true)
+    private lateinit var cacheAddArticlesUseCaseTest: CacheAddArticlesUseCase
+    private lateinit var cacheGetAllArticlesUseCase: CacheGetAllArticlesUseCase
+    private val cacheRepository: CacheRepository = mockk(relaxed = true)
 
     @Before
     fun setUp() {
-        addArticleUseCase = AddArticleUseCase(bookmarksRepository)
-        getAllBookmarksUseCase = GetAllBookmarksUseCase(bookmarksRepository)
+        cacheAddArticlesUseCaseTest = CacheAddArticlesUseCase(cacheRepository)
+        cacheGetAllArticlesUseCase = CacheGetAllArticlesUseCase(cacheRepository)
     }
 
     @Test
     fun `should call getAllBookmarks on repository`() = runTest {
-        coEvery { bookmarksRepository.getAllArticles() } returns emptyList()
+        coEvery { cacheRepository.getAllArticles() } returns emptyList()
 
-        getAllBookmarksUseCase.invoke()
+        cacheGetAllArticlesUseCase.invoke()
 
-        coVerify(exactly = 1) { bookmarksRepository.getAllArticles() }
+        coVerify(exactly = 1) { cacheRepository.getAllArticles() }
     }
 
     @Test
     fun `return empty list if nothing in database`() = runTest {
-        coEvery { bookmarksRepository.getAllArticles() } returns emptyList()
+        coEvery { cacheRepository.getAllArticles() } returns emptyList()
 
-        val result = getAllBookmarksUseCase.invoke()
+        val result = cacheGetAllArticlesUseCase.invoke()
 
         assertEquals(0, result.size)
 
-        coVerify(exactly = 1) { bookmarksRepository.getAllArticles() }
+        coVerify(exactly = 1) { cacheRepository.getAllArticles() }
     }
 
     @Test
@@ -73,15 +73,15 @@ class GetAllBookmarksUseCaseTest {
             content = ""
         )
 
-        addArticleUseCase.invoke(article1)
-        addArticleUseCase.invoke(article2)
+        cacheAddArticlesUseCaseTest.invoke(listOf(article1, article2))
 
-        coEvery { bookmarksRepository.getAllArticles() } returns listOf(article1, article2)
+        coEvery { cacheRepository.getAllArticles() } returns listOf(article1, article2)
 
-        val result = getAllBookmarksUseCase.invoke()
+        val result = cacheGetAllArticlesUseCase.invoke()
 
         assertEquals(2, result.size)
 
-        coVerify(exactly = 1) { bookmarksRepository.getAllArticles() }
+        coVerify(exactly = 1) { cacheRepository.getAllArticles() }
     }
+
 }

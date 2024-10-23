@@ -1,8 +1,10 @@
 package com.example.newsapp.di
 
 import com.example.newsapp.data.repository.BookmarksRepositoryImpl
+import com.example.newsapp.data.repository.CacheRepositoryImpl
 import com.example.newsapp.data.repository.NewsFromApiRepositoryImpl
 import com.example.newsapp.domain.repository.BookmarksRepository
+import com.example.newsapp.domain.repository.CacheRepository
 import com.example.newsapp.domain.repository.NewsFromApiRepository
 import dagger.Binds
 import dagger.Module
@@ -14,9 +16,12 @@ import dagger.hilt.components.SingletonComponent
 interface RepositoryModule {
 
     @Binds
-    fun bindDatabaseRepository(newsDatabaseRepositoryImpl: BookmarksRepositoryImpl): BookmarksRepository
+    fun bindBookmarksRepository(bookmarksRepositoryImpl: BookmarksRepositoryImpl): BookmarksRepository
 
     @Binds
     fun bindNewsFromApiRepository(newsFromApiRepositoryImpl: NewsFromApiRepositoryImpl): NewsFromApiRepository
+
+    @Binds
+    fun bindCacheRepository(cacheRepositoryImpl: CacheRepositoryImpl): CacheRepository
 
 }

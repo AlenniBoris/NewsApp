@@ -9,9 +9,9 @@ import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Test
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 
-class DeleteArticleUseCaseTest{
+class DeleteArticleUseCaseTest {
 
     private lateinit var addArticleUseCase: AddArticleUseCase
     private lateinit var deleteArticleUseCase: DeleteArticleUseCase

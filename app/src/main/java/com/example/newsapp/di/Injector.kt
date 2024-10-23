@@ -3,7 +3,8 @@ package com.example.newsapp.di
 import android.app.Application
 import androidx.room.Room
 import com.example.newsapp.data.source.api.NewsApiService
-import com.example.newsapp.data.source.dao.ArticleDatabase
+import com.example.newsapp.data.source.dao.bookmarks.BookmarksDatabase
+import com.example.newsapp.data.source.dao.cache.CacheDatabase
 import com.example.newsapp.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -21,7 +22,8 @@ import javax.inject.Singleton
 object Injector {
 
     private const val HEADER_AUTHORIZATION = "Authorization"
-    private const val DATABASE_FILE = "database-data.db"
+    private const val BOOKMARKS_DATABASE_FILE = "database-data.db"
+    private const val CACHE_DATABASE_FILE = "database-cache.db"
 
     @Singleton
     @Provides
@@ -57,11 +59,20 @@ object Injector {
 
     @Singleton
     @Provides
-    fun provideArticlesDatabase(application: Application): ArticleDatabase =
+    fun provideBookmarksDatabase(application: Application): BookmarksDatabase =
         Room.databaseBuilder(
             application,
-            ArticleDatabase::class.java,
-            DATABASE_FILE
+            BookmarksDatabase::class.java,
+            BOOKMARKS_DATABASE_FILE
+        ).build()
+
+    @Singleton
+    @Provides
+    fun provideCacheDatabase(application: Application): CacheDatabase =
+        Room.databaseBuilder(
+            application,
+            CacheDatabase::class.java,
+            CACHE_DATABASE_FILE
         ).build()
 
 }
