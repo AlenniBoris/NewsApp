@@ -1,6 +1,6 @@
 ## NewsApp
 
-Let's imagine that, once we wake up, we want to read some news. Justo to know what's goisg in the world right now. But suddenly all applications that give you this opportunity have stopped working. So you need to build your own. Our app gives you this opportunity. NewsApp is
+Let's imagine that, once we wake up, we want to read some news. Just to know what's going in the world right now. But suddenly all applications that give you this opportunity have stopped working. So you need to build your own. Our app gives you this opportunity. NewsApp is
 a platform based on the [News API](https://newsapi.org/). Users will be able to easily find
 news from diiferent sources on any topics, and then, when via clicking
 on each image, view its details.
