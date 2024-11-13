@@ -1,5 +1,6 @@
 package com.example.newsapp.di
 
+import com.example.newsapp.BuildConfig
 import android.app.Application
 import androidx.room.Room
 import com.example.newsapp.data.source.api.NewsApiService
@@ -37,7 +38,7 @@ object Injector {
     ): OkHttpClient = OkHttpClient.Builder()
         .addInterceptor { chain ->
             val request = chain.request().newBuilder()
-                .addHeader(HEADER_AUTHORIZATION, Constants.API_KEY)
+                .addHeader(HEADER_AUTHORIZATION, BuildConfig.API_KEY)
                 .build()
 
             chain.proceed(request)
